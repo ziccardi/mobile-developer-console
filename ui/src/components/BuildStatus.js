@@ -1,30 +1,32 @@
 import React, { Component } from 'react';
+import './BuildStatus.css';
 
 const getIcon = phase => {
     switch(phase) {
         case 'Complete':
-            return <i className="fa fa-check-circle fa-fw" aria-hidden="true"></i>;
+            return <span className="fa fa-check-circle-o fa-fw" aria-hidden="true"></span>;
         case 'Failed':
-            return <i className="fa fa-check-circle fa-fw" aria-hidden="true"></i>;
+            return <span className="fa fa-times-circle-o fa-fw" aria-hidden="true"></span>;
         case 'Cancelled':
-            return <span className="fa fa-ban text-muted" aria-hidden="true"></span>;
+            return <span className="fa fa-ban text-muted fa-fw" aria-hidden="true"></span>;
         case 'Completed':
-            return <span className="fa fa-check text-success" aria-hidden="true"></span>;
+            return <span className="fa fa-check fa-fw text-success" aria-hidden="true"></span>;
         case 'Active':
-            return <span className="fa fa-refresh" aria-hidden="true"></span>;
+            return <span className="fa fa-refresh fa-fw" aria-hidden="true"></span>;
         case 'Error':
-            return <span className="fa fa-times text-danger" aria-hidden="true"></span>;
+            return <span className="fa fa-times fa-fw text-danger" aria-hidden="true"></span>;
         case 'New':
-            return <span className="fa fa-hourglass-o" aria-hidden="true"></span>;
+            return <span className="fa fa-hourglass-o fa-fw" aria-hidden="true"></span>;
         case 'Pending':
-            return <span className="fa fa-hourglass-half" aria-hidden="true"></span>;
+            return <span className="fa fa-hourglass-half fa-fw" aria-hidden="true"></span>;
         case 'Ready':
-            return <span className="fa fa-check text-success" aria-hidden="true"></span>;
+            return <span className="fa fa-check text-success fa-fw" aria-hidden="true"></span>;
         case 'Running':
-            return <span className="fa fa-refresh fa-spin" aria-hidden="true" ng-class="{'fa-spin' : spinning}"></span>;
+            return <span className="fa fa-refresh fa-spin fa-fw" aria-hidden="true"></span>;
         case 'Succeeded':
-            return <span className="fa fa-check text-success" aria-hidden="true"></span>;
+            return <span className="fa fa-check text-success fa-fw" aria-hidden="true"></span>;
         default:
+            return null;
     }
 };
 
