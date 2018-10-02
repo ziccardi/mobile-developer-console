@@ -48,6 +48,7 @@ class Client extends Component {
         if (matchingConfig) {
           matchingConfig.builds = matchingConfig.builds || [];
           matchingConfig.builds.push(build);
+          this.setState({ matchingConfig });
         }
       });
 
@@ -56,6 +57,8 @@ class Client extends Component {
   }
 
   render() {
+    const { pathname } = this.props.location;
+    const clientId = pathname.substr(pathname.lastIndexOf('/') + 1);
     return (
       <div>
         <div>

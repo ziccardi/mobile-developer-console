@@ -17,6 +17,7 @@ if (process.env.NODE_ENV !== 'production') {
   baseUrl = 'http://localhost:8080/http://localhost:4000/api';
   wsUrl = 'ws://localhost:4000/api';
 }
+baseUrl = 'http://localhost:4000/api';
 
 const fetchItems = async (url) => {
   const response = await fetch(url, { credentials: 'same-origin' });
@@ -62,6 +63,21 @@ const dataService = {
   serviceInstances: () => fetchItems(`${baseUrl}/serviceinstances`),
   builds: () => fetchItems(`${baseUrl}/builds`),
   buildConfigs: () => fetchItems(`${baseUrl}/buildconfigs`),
+  createBuildConfig: async (config) => {
+    const response = await fetch(`${baseUrl}/buildconfigs`, {
+      method: 'POST',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+      body: JSON.stringify(config),
+    });
+    if (!response.ok) {
+      throw Error(response.statusText);
+    }
+    return response.json();
+  },
   createApp: async (app) => {
     const response = await fetch(`${baseUrl}/mobileclients`, {
       method: 'POST',
