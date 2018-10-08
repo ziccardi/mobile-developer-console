@@ -17,7 +17,6 @@ if (process.env.NODE_ENV !== 'production') {
   baseUrl = 'http://localhost:8080/http://localhost:4000/api';
   wsUrl = 'ws://localhost:4000/api';
 }
-baseUrl = 'http://localhost:4000/api';
 
 const fetchItems = async (url) => {
   const response = await fetch(url, { credentials: 'same-origin' });
