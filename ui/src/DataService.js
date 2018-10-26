@@ -73,6 +73,22 @@ const dataService = {
     }
     return response.json();
   },
+  updateApp: async (app) => {
+    const response = await fetch(`${baseUrl}/mobileclients/aaa`, {
+      method: 'POST',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+      body: JSON.stringify(app),
+    });
+    if (!response.ok) {
+      const msg = await response.text();
+      throw Error(`${response.statusText}: ${msg}`);
+    }
+    return response.json();
+  },  
   mobileApp: async appName => {
     const response = await fetch(`${baseUrl}/mobileclients/${appName}`, {
       method: 'GET',

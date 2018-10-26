@@ -98,6 +98,25 @@ const resourceReducer = actions => (state = defaultState, action) => {
         isCreating: false,
         createError: action.error,
       };
+    case actions.updateRequest:
+      return {
+        ...state,
+        isUpdating: true,
+        updateError: false,
+      };
+    case actions.updateSuccess:
+      return {
+        ...state,
+        isUpdating: false,
+        updateError: false,
+        items: [...state.items, action.result],
+      };
+    case actions.updateFailure:
+      return {
+        ...state,
+        isUpdating: false,
+        updateError: action.error,
+      };
     case actions.deleteRequest:
       return {
         ...state,
