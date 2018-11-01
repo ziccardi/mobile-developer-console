@@ -176,9 +176,15 @@ func (h *MobileClientsHandler) Update(c echo.Context) error {
 		}
 		return err
 	}
+
 	if reqData.AppIdentifier != "" {
 		app.Spec.AppIdentifier = reqData.AppIdentifier
 	}
+
+	if reqData.Name != "" {
+		app.Spec.Name = reqData.Name
+	}
+
 	uerr := h.mobileClientRepo.Update(app)
 	if uerr != nil {
 		return uerr

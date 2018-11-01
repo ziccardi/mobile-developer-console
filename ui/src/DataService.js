@@ -73,8 +73,8 @@ const dataService = {
     }
     return response.json();
   },
-  updateApp: async (app) => {
-    const response = await fetch(`${baseUrl}/mobileclients/aaa`, {
+  updateApp: async (id, app) => {
+    const response = await fetch(`${baseUrl}/mobileclients/${id}`, {
       method: 'POST',
       cache: 'no-cache',
       credentials: 'same-origin',
