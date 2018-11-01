@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { FormGroup, ControlLabel, Button, Modal, Alert, Icon } from 'patternfly-react';
-import { createApp, registerPlatform, selectPlatform, resetForm, fetchApp } from '../actions/apps';
 import PlatformItem from '../components/create_client/PlatformItem';
 import PlatformItems from '../components/create_client/PlatformItems';
 import CreateAndroidClient from '../components/create_client/CreateAndroidClient';
@@ -106,14 +104,14 @@ class ClientEditBaseClass extends Component {
 
   renderPlatformSelection() {
     var availablePlatforms = [];
-
+    var platform;
     if (this.state.editingMode) {
       var index = this.props.apps.items.findIndex(item => item.metadata.name === this.props.itemName);
-      var platform = this.props.apps.items[index].spec.clientType;
+      platform = this.props.apps.items[index].spec.clientType;
       availablePlatforms.push(<PlatformItem type={platform} key={platform}/>);
     } else {
       for (var key in this.props.platforms) {
-        var platform = this.props.platforms[key]
+        platform = this.props.platforms[key]
         availablePlatforms.push(<PlatformItem type={platform} key={platform}/>);
       }  
     }
