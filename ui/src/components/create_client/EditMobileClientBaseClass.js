@@ -1,3 +1,5 @@
+
+
 import React, { Component } from 'react';
 import { Grid, Form } from 'patternfly-react';
 import { CREATE_CLIENT_APP_ID, CREATE_CLIENT_NAME } from './Constants';
@@ -50,7 +52,7 @@ class EditMobileClientBaseClass extends Component {
    * @param {*} controlId id of the control being validated
    * @param {*} value value to be validate
    */
-  validate(controlId, value) {
+  static validate(controlId, value) {
     switch (controlId) {
       case CREATE_CLIENT_NAME:
         return value !== undefined && value.match('^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$')
@@ -64,7 +66,7 @@ class EditMobileClientBaseClass extends Component {
   }
 
   _validate(controlId, value) {
-    this.props.setFieldValue(controlId, value, this.validate(controlId, value) === 'success');
+    this.props.setFieldValue(controlId, value, EditMobileClientBaseClass.validate(controlId, value) === 'success');
   }
 
   validateForm() {

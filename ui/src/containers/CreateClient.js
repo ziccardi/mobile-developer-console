@@ -11,7 +11,7 @@ class CreateClient extends ClientEditBaseClass {
 
 function mapStateToProps(state) {
   return {
-    apps: state.apps,
+    apps: state.apps
   };
 }
 
@@ -19,7 +19,10 @@ const mapDispatchToProps = {
   createApp,
   registerPlatform,
   selectPlatform,
-  resetForm,
+  resetForm
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateClient);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CreateClient);

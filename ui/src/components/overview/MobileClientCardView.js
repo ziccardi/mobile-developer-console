@@ -15,7 +15,7 @@ import {
   PLATFORM_ANDROID,
   PLATFORM_IOS,
   PLATFORM_CORDOVA,
-  PLATFORM_XAMARIN,
+  PLATFORM_XAMARIN
 } from '../../components/create_client/Constants';
 
 const SUPPORTED_PLATFORMS = [PLATFORM_ANDROID, PLATFORM_CORDOVA, PLATFORM_IOS, PLATFORM_XAMARIN];
@@ -24,7 +24,7 @@ class MobileClientCardView extends Component {
   constructor(props) {
     super(props);
     this.state = { filter: '', currentValue: '' };
-    
+
     this.emptyStateMessage = {
       noAppsCreated: 'You have no mobile apps right now. Create one to get started.',
       noAppsAfterFiltering: 'No mobile apps match the entered filter.'
@@ -46,7 +46,7 @@ class MobileClientCardView extends Component {
       <EmptyState>
         <EmptyStateTitle>{this.emptyStateMessage.noAppsCreated}</EmptyStateTitle>
         <EmptyStateAction>
-          <CreateClient createButtonSize="large" platforms={SUPPORTED_PLATFORMS}/>
+          <CreateClient createButtonSize="large" platforms={SUPPORTED_PLATFORMS} />
         </EmptyStateAction>
       </EmptyState>
     );
