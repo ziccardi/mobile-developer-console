@@ -15,7 +15,7 @@ function configurationView(configuration) {
   return configuration.value;
 }
 
-class BoundServiceRow extends Component {
+export class BoundServiceRow extends Component {
   constructor(props) {
     super(props);
 
